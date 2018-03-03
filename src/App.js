@@ -17,27 +17,32 @@ class App extends Component {
   }
 
   handleClick(event) {
-    alert("output: " + this.state.value);
+    alert('output: ' + this.state.value);
     event.preventDefault();
   }
 
   render() {
     return (
+    <div>
       <div className="App">
         <header className="App-header">
-        <title> Recipe Box</title>
-          <h1 className="App-title">My recipe box</h1>
+        <title> Keto Recipe </title>
+          <h1 className="App-title">Keto Recipe-Meals</h1>
         </header>
-        
-        <form onSubmit={this.handleSubmit}>
+      </div>
+
+      <div className="Out">
+        <body>
+        <form onSubmit={this.handleClick}>
          <label> 
            Write: 
           <textarea  value={this.state.value} onChange={this.handleChange} />
         </label>
       <input className="box" type="submit" value="Submit" />
       </form>
+      </body>
       </div>
-      
+    </div>
     );
   }
 }
