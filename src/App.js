@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Button, ButtonToolbar, Modal, Popover, Tooltip, OverlayTrigger } from 'react-bootstrap';
+import {Modal, Button} from 'react-bootstrap'
+
 
 //Task1: I can create recipes that have names and ingredients.
 
+
+
+
 class App extends Component {
-  constructor(props){
+  constructor(props, context){
     super(props);
-    this.state = {
-      value: '',
-      show: false
-    };
-    
+    this.state = { value: '', show: false};
     this.handleShow = this.handleShow.bind(this);
+    this.handleClose = this.handleClose.bind(this); this.handleShow = this.handleShow.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.handlePop = this.handlePop.bind(this);
     this.handlePopped = this.handlePopped.bind(this);
@@ -26,23 +27,24 @@ class App extends Component {
     alert('output: ' + this.state.value);
     event.preventDefault();
   }
-  handlePopped(event) {
+
+  handlePop() {
+    this.setState({ show: true });
+  }
+
+  handlePopped() {
     this.setState({ show: false });
   }
 
-  handlePop(event) {
-    this.setState({ show: true });
-    
-  }
-
   render() {
-    const popover = (
-      <Popover id="modal-popover" title="popover">
-        pop this 
-        </Popover>
-    );
+    // const popover = (
+    //   <Popover id="modal-popover" title="popover">
+    //     pop this 
+    //     </Popover>
+    // );
 
-    const tooltip = <Tooltip id="modal-tooltip">Wow much cool</Tooltip>;
+    // const tooltip = <Tooltip id="modal-tooltip">Wow much cool</Tooltip>;
+
 
 
     return (
@@ -50,7 +52,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
         <title> Keto Recipe </title>
-          <h1 className="App-title">Keto Recipe-Meals</h1>
+          <h1 className="App-title">Ketogenisis title</h1>
         </header>
       </div>
 
@@ -63,41 +65,44 @@ class App extends Component {
       <input className="box" type="submit" value="Submit" />
       </form>
       </div>
-
-      <Button bsStyle="primary" bsSize="small" onClick={this.handlePop}>
-        Temporary Recipe box
-      </Button>
+     
+     
       
       <div>
-      <Modal show={this.state.show} onHide={this.handlePopped}>
+      <Button bsStyle="primary" bsSize="large" onClick={this.handlePop}>
+        Launch Modal
+      </Button>
+
+      <Modal
+        show={this.state.show} onHide={this.handlePopped}>
         <Modal.Header closeButton>
-          <Modal.Title>Recipes</Modal.Title>
+          <Modal.Title>Ketogic Entry</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-        <h1>  Ingredients </h1>
-        <p>
-        this is a {''} 
+        {/* <p> 
+        there is a {' '}
         <OverlayTrigger overlay={popover}>
-        <a href="#popover">popover</a>
-        </OverlayTrigger>{''}
+          <a href="#popover">popover</a>
+        </OverlayTrigger>{' '}
         here
-        </p>
+        </p> */}
 
-        <h2> Tooltips in modal </h2>
-        <p>
-        this is a {''} 
-        <OverlayTrigger overlay={popover}>
-        <a href="#tooltip">tooltip</a>
-        </OverlayTrigger>{''}
-        here
-        </p>
+        {/* <p>
+        there is a{' '}
+        <OverlayTrigger overlay={tooltip}>
+          <a href="#tooltip">tooltip</a>
+        </OverlayTrigger>{' '}
+          here
+        </p> */}
+
         </Modal.Body>
-        <Modal.Footer> 
-          <Button onClick={this.handleClose}>Close</Button>
-          <Button> Submit</Button>
+        <Modal.Footer>
+          <Button onClick={this.handlePopped}>Close</Button>
+          <Button bsStyle="primary">Save changes</Button>
         </Modal.Footer>
       </Modal>
-      </div>
+    </div>
+
     </div>
     );
   }

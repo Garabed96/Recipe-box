@@ -19,3 +19,18 @@ form{
   border: 3px;
   padding: 10px;
 }
+
+
+Button{
+  margin-top: 100px;
+  margin-left: 300px;
+}
+
+.modal-container {
+  position: relative;
+}
+.modal-container .modal, .modal-container .modal-backdrop {
+  position: absolute;
+}
+
+.modal{ display:block; }
