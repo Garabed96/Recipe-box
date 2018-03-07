@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import {Modal, Button} from 'react-bootstrap'
 
@@ -8,25 +8,24 @@ import {Modal, Button} from 'react-bootstrap'
 
 
 
-class App extends Component {
+class App extends React.Component {
   constructor(props, context){
     super(props);
     this.state = { value: '', show: false};
-    this.handleShow = this.handleShow.bind(this);
-    this.handleClose = this.handleClose.bind(this); this.handleShow = this.handleShow.bind(this);
-    this.handleClose = this.handleClose.bind(this);
+    // this.handleShow = this.handleShow.bind(this);
+    // this.handleClose = this.handleClose.bind(this); 
     this.handlePop = this.handlePop.bind(this);
     this.handlePopped = this.handlePopped.bind(this);
   }
 
-  handleShow(event) {
-    this.setState({value: event.target.value});
-  }
+  // handleShow(event) {
+  //   this.setState({value: event.target.value});
+  // }
 
-  handleClose(event) {
-    alert('output: ' + this.state.value);
-    event.preventDefault();
-  }
+  // handleClose(event) {
+  //   alert('output: ' + this.state.value);
+  //   event.preventDefault();
+  // }
 
   handlePop() {
     this.setState({ show: true });
@@ -49,7 +48,7 @@ class App extends Component {
 
     return (
     <div>
-      <div className="App">
+      {/* <div className="App">
         <header className="App-header">
         <title> Keto Recipe </title>
           <h1 className="App-title">Ketogenisis title</h1>
@@ -64,19 +63,22 @@ class App extends Component {
         </label>
       <input className="box" type="submit" value="Submit" />
       </form>
-      </div>
+      </div> */}
      
      
       
-      <div>
+      <div class="modal-container" style={{ height: 300 }}
+      id="modal-container">
+
       <Button bsStyle="primary" bsSize="large" onClick={this.handlePop}>
         Launch Modal
       </Button>
 
-      <Modal
-        show={this.state.show} onHide={this.handlePopped}>
+      <Modal show={this.state.show} onHide={this.handlePopped} container={this}
+                aria-labelledby="contained-modal-title"                
+      >
         <Modal.Header closeButton>
-          <Modal.Title>Ketogic Entry</Modal.Title>
+          <Modal.Title id="contained-modal-title">Ketogic Entry</Modal.Title>
         </Modal.Header>
         <Modal.Body>
         {/* <p> 

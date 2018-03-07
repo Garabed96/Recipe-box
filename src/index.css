@@ -26,11 +26,10 @@ Button{
   margin-left: 300px;
 }
 
+.modal { display:block; }
 .modal-container {
   position: relative;
 }
 .modal-container .modal, .modal-container .modal-backdrop {
   position: absolute;
 }
-
-.modal{ display:block; }
