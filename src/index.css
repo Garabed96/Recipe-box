@@ -30,6 +30,18 @@ Button{
 .modal-container {
   position: relative;
 }
-.modal-container .modal, .modal-container .modal-backdrop {
+.modal-container .modal, .modal-container {
   position: absolute;
 }
+
+.Ingredients, .Recipe{
+  display: inline-block;
+  width: 200px;
+  text-align: right;
+}
+
+#static{
+  
+  margin-bottom: 50px;
+}
+
